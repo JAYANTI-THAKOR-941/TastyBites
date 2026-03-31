@@ -15,12 +15,17 @@ connectDB();
 
 //middlewares
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
+app.use('/uploads',express.static('uploads'));
+
 
 //import routes
 import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js'
 
 app.use('/api/user',userRoutes);
+app.use('/api/product',productRoutes);
 
 app.get('/',(req,res)=>{
     res.send('TastyBites Server is Running.!!');
