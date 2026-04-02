@@ -1,19 +1,19 @@
 import {Routes,Route} from 'react-router-dom';
-// import Register from './pages/Register';
-import Login from './pages/Login';
+import Home from './pages/Home';
+import Header from './components/Header';
+import ProductManagement from './admin/ProductManagement';
 import AddProduct from './admin/AddProduct';
 import Update from './admin/Update';
-import ProductManagement from './admin/ProductManagement';
 
 const App = ()=>{
   return(
     <>
+    <Header/>
      <Routes>
-        {/* <Route path='/' element={<Register/>}/> */}
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/add' element={<AddProduct/>}/>
-        <Route path='/update' element={<Update/>}/>
-        <Route path='/' element={<ProductManagement/>}/>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/admin' element={<ProductManagement/>}/>
+      <Route path='/add-product' element={<AddProduct/>}/>
+      <Route path='/edit/:id' element={<Update/>}/>
      </Routes>
     </>
     

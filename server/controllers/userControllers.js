@@ -10,12 +10,12 @@ export const register = async (req, res) => {
             return res.status(401).json({message:"User already exits.!!"});
         }
       
-        await User.create({
+        const newUser = await User.create({
             username,
             email,
             password
         });
-        res.status(201).json({message:"User register successfully.!!"});
+        res.status(201).json({message:"User register successfully.!!",newUser});
    }
    catch(error){
         res.status(501).json({message:"Faild to register.!!"})

@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import api from "../services/api";
+import './admin.css';
+import { useNavigate } from "react-router-dom";
+
 
 const AddProduct = () => {
   const [title, setTitle] = useState("");
@@ -8,6 +11,9 @@ const AddProduct = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
+
+
+    const navigate = useNavigate();
 
   const handleImage = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -39,6 +45,7 @@ const AddProduct = () => {
       setPrice("");
       setCategory("");
       setImage(null);
+      navigate('/admin')
     } catch (error) {
       console.error("Error Details:", error.response?.data || error.message);
     }

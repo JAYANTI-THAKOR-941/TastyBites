@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import api from "../services/api";
+import './admin.css';
+import { useParams } from "react-router-dom";
+
 
 const Update = () => {
   const [title, setTitle] = useState("");
@@ -8,6 +11,8 @@ const Update = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
+
+  const {id} = useParams();
 
   const handleImage = (e) => {
     if (e.target.files && e.target.files[0]) {

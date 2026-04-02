@@ -74,3 +74,21 @@ export const getAllProduct = async(req,res)=>{
       .json({ message: "Failed to fetch products.", error: error.message });
   }
 }
+
+export const getProductById = async(req,res)=>{
+  try{
+      const {id} = req.params;
+      const product = await Product.findById(id);
+
+      if (!product) {
+          return res.status(401).json({ message: "Product Not Found.!!" });
+      }
+      res.status(201).json(product);
+  }
+   catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch product.", error: error.message });
+  }
+}
