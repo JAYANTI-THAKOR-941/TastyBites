@@ -31,6 +31,9 @@ export const login = async(req,res)=>{
             return res.status(401).json({message:"User not found.!!"});
         }
 
+        // set session
+        req.session.userId = user._id;
+        req.session.userRole = user.role;
         res.status(201).json({message:"Login Successfully.!!"});
     }
     catch(error){
